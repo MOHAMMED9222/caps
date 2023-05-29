@@ -1,20 +1,24 @@
 'use strict';
 
-const handler = require('./handler');
+
 const { io } = require('socket.io-client');
 const socket = io.connect('http://localhost:3003/caps');
 
-let store = 'Socks Corp.';
+socket.emit('get-all', {queueId: 'driver'});
 
-socket.emit('join', store);
+socket.on('pickup', (payload) => {
+  setTimeout(() => {
 
 
-setInterval(() => {
-  handler(store);
-}, 5000);
+    console.log(`DRIVER: picked up ${payload.orderID}`);
+    socket.emit('received', {queueId: 'driver'});
+    socket.emit('in-transit', payload);
 
-socket.on('delivered', (payload) => {
-
-  console.log(`VENDOR: Thank you for delivering ${payload.orderID}`);
+   
+  }, 1000);
+  setTimeout(() => {
+    socket.emit('delivered', payload);
+    console.log(`DRIVER: delivered ${payload.orderID}`);
+  }, 1000);
 
 });

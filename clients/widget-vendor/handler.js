@@ -6,7 +6,7 @@ var chance = new Chance();
 const newOrder = (socket, payload = null) => {
   if (!payload) {
     payload = {
-      store: '1-800-flowers',
+      store: 'Acme Widgets',
       orderID: chance.guid(),
       customer: chance.name(),
       address: chance.address(),
@@ -21,6 +21,7 @@ const newOrder = (socket, payload = null) => {
 const thanksDriver = (payload) => {
 
   console.log(`VENDOR: Thank you for delivering ${payload.orderID}`);
+
 
 };
 
