@@ -10,7 +10,7 @@ Driver and Vendor eventPools
 
 ### Links and Resources
 
-- [GitHub Actions ci/cd]([https://github.com/JMCov/auth-api/actions](https://github.com/MOHAMMED9222/caps))
+- [GitHub Actions ci/cd]((https://github.com/MOHAMMED9222/caps))
 
 ### Setup
 
