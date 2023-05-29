@@ -1,6 +1,5 @@
 'use strict';
 
-const eventPool = require('../eventPool');
 require('./handler');
 
 
